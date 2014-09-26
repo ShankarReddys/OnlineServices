@@ -27,7 +27,9 @@
               $.each(data.items, function (i, item) {
                   $("<img>").attr("src", item.media.m).appendTo("#images");
                   if (i === 3) {
+                      alert("thank you");
                       return false;
+
                   }
               });
           });
