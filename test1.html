@@ -1,40 +1,36 @@
-<!doctype html>
-<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>jQuery.getJSON demo</title>
-  <style>
-  img {
-    height: 100px;
-    float: left;
-  }
-  </style>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+     <script type="text/javascript">
+         alert("Hi there");
+         $.getJSON("http://localhost:3700/api/Product",
+                       function (data) {
+                           
+                           //Clear the div displaying the result
+                           $("#productView").empty();
+                           //Create a table and append the table body
+                           var $table = $('<table border="2">');
+                           var $tbody = $table.append('<tbody />').children('tbody');
+                           //data - return value from the Web API method
+                           for (var i = 0; i < data.length; i++) {
+                               //add a new row to the table
+                               var $trow = $tbody.append('<tr />').children('tr:last');
+                               //add a new column to display Name
+                               var $tcol = $trow.append("<td/>").children('td:last')
+                                .append(data[i].Name);
+                               //add a new column to display Category
+                               var $tcol = $trow.append("<td/>").children('td:last')
+                                 .append(data[i].Category);
+                               //add a new column to display Price
+                               var $tcol = $trow.append("<td/>").children('td:last')
+                                .append(data[i].Price);
+                           }
+                           //display the table in the div
+                           $table.appendTo('#productView');
+                       });
+         </script>
 </head>
 <body>
- 
-<div id="images"></div>
- 
-<script>
-    (function () {
-        var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-        $.getJSON(flickerAPI, {
-            tags: "mount rainier",
-            tagmode: "any",
-            format: "json"
-        })
-          .done(function (data) {
-              $.each(data.items, function (i, item) {
-                  $("<img>").attr("src", item.media.m).appendTo("#images");
-                  if (i === 3) {
-                      alert("thank you");
-                      return false;
-
-                  }
-              });
-          });
-    })();
-</script>
- 
+    <div id="productView">34534</div>
 </body>
 </html>
