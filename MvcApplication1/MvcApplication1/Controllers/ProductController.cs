@@ -28,7 +28,7 @@ namespace MvcApplication1.Controllers
            products.Add(new Product { Id = 6, Name = "Toys", Category = "Gift Items", Price = 15000 });
         }
         /// <summary>
-        /// get products
+        /// get products        
         /// </summary>
         /// <param name="selectedId"></param>
         /// <returns></returns>
