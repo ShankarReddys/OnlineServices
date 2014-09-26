@@ -27,7 +27,11 @@ namespace MvcApplication1.Controllers
            products.Add(new Product { Id = 5, Name = "iPads", Category = "Electronic", Price = 67000 });
            products.Add(new Product { Id = 6, Name = "Toys", Category = "Gift Items", Price = 15000 });
         }
-        
+        /// <summary>
+        /// get products
+        /// </summary>
+        /// <param name="selectedId"></param>
+        /// <returns></returns>
         public IEnumerable<Product> GetProducts(int selectedId)
         {
             if (products.Count() > 0)
